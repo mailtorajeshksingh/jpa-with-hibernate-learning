@@ -5,7 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * Created by Rajesh Singh 3/2/2019
@@ -33,5 +35,10 @@ public class PersonJpaRepository {
     public  void deleteById(int id){
         Person person = findById(id);
         entityManager.remove(person);
+    }
+
+    public List<Person> findAll(){
+       TypedQuery<Person> namedQuary =  entityManager.createNamedQuery("find_all_person", Person.class);
+       return namedQuary.getResultList();
     }
 }

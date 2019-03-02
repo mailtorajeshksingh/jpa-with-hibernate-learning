@@ -1,14 +1,13 @@
 package com.example.database.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
  * Created by Rajesh Singh on 2/22/2019
  */
 @Entity
+@NamedQuery(name="find_all_person", query = "select p from Person p")
 public class Person {
     @Id
     @GeneratedValue
