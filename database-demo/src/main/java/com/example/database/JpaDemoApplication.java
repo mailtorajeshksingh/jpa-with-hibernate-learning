@@ -28,21 +28,19 @@ public class JpaDemoApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         {
             logger.info("\n Person for id 10001 {}", repository.findById(10001));
 
-            /*logger.info("\nFind a person {} ",repository.findById(10001));
-
-            logger.info("\nDelete person id 10002 {} ", repository.deleteById(10002));
-
-            logger.info(" \n All Person Data {}", repository.findAll());
-
-            logger.info("\n Inserting 10007 {}", repository.insert(new Person(10007, "Tara",
+            logger.info("\n Inserting 10007 {}", repository.insert(new Person("Tara",
                     "Berlin", new Date())));
 
             logger.info("\n Update 10006 {}", repository.update(new Person(10006, "Vijay Rajesh",
-                    "Berlin", new Date())));*/
+                    "Berlin", new Date())));
+
+            repository.deleteById(10006);
+
+
         }
 
     }
